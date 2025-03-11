@@ -35,6 +35,9 @@ const environments: Array<Environment> = reactive([]);
 environments.push(sala);
 environments.push(quarto);
 
+const on = () =>{
+    
+}
 
 </script>
 
