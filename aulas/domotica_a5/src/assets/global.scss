@@ -1,0 +1,12 @@
+//Quando se está em outra pasta, precisa colocar o caminho
+@use "material-icons/iconfont/material-icons.css";
+@use "reset.scss"; 
+@use "variables.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+#app{
+    min-width: 100vw; //vw = view width
+    min-height: 100vh; //vh = view height
+    background-color: var(--backgroud-light-color);
+    font-family: 'Nunito';
+}

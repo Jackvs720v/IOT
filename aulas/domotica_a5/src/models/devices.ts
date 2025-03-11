@@ -1,10 +1,9 @@
 
-
 export class Device{
 
     name: string = '';
-    velue: boolean = false;
-
+    state: boolean = false;
+    icon: string = 'devices';
 
 }
 
@@ -13,16 +12,7 @@ export class Environment {
     devices: Array<Device> = [];
 }
 
-const lampada = new Device();
-lampada.name = 'led mesa escritorio'
 
-const ventilador = new Device();
-ventilador.name = 'Ventilador de teto'
-
-const quarto = new Environment();
-quarto.name = 'quarto';
-
-quarto.devices = [lampada,ventilador]
 
 // //typescript cobra que tenha uma definição
 // //? = Opcional

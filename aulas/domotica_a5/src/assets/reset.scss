@@ -1,0 +1,11 @@
+//Tem como objetivo resetar alguns padrões do css
+* { //generalizando
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; //tamanho da caixa que garante o tamanho da caixa
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+}
