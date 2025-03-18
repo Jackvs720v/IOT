@@ -1,5 +1,6 @@
 //Quando se está em outra pasta, precisa colocar o caminho
 @use "material-icons/iconfont/material-icons.css";
+@use "primeflex/primeflex.css";
 @use "reset.scss"; 
 @use "variables.scss";
 
@@ -9,4 +10,8 @@
     min-height: 100vh; //vh = view height
     background-color: var(--backgroud-light-color);
     font-family: 'Nunito';
+}
+
+.teste{
+    background-color: red;
 }
