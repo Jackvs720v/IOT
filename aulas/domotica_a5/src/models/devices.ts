@@ -4,6 +4,7 @@ export class Device{
     name: string = '';
     state: boolean = false;
     icon: string = 'devices';
+    fav: string = 'devices';
 
 }
 

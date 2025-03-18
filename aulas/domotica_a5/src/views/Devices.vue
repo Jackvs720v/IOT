@@ -8,20 +8,26 @@ const ar: Device = reactive(new Device());
 ar.name = "Ar condicionado Samsung";
 ar.state = true;
 ar.icon = 'heat_pump';
+ar.fav = 'favorite';
 
 const tv: Device = reactive(new Device());
 tv.name = "Smart TV LG";
 tv.icon = 'tv';
+tv.fav = 'favorite';
+
 
 const iluminacao: Device = reactive(new Device())
 iluminacao.name = "Lâmpada LED";
 iluminacao.state = true;
 iluminacao.icon = 'light';
+iluminacao.fav = 'favorite';
+
 
 const tomada: Device = reactive(new Device())
 tomada.name = "Tomada Inteligente";
 tomada.state = false;
 tomada.icon = 'power';
+tomada.fav = 'favorite';
 
 //Environments
 

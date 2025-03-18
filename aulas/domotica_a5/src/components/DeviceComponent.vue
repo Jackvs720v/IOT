@@ -12,6 +12,7 @@ const props = defineProps({
     justify-content-center"> 
          <h5>{{ props.device.name }}</h5>
         <span class="icons material-icons-round">{{ props.device.icon }}</span>
+        <span class="icons material-icons-round">{{ props.device.fav }}</span>
         <!-- <h5>{{ ar.state }}</h5> -->
         <div v-bind:class="`device-buttons button-${props.device.state}`"> <!-- template string segue o seguinte formato = `button-${ar.state}` -->
             <button @click="()=> props.device.state = true" class="on">ON</button>
