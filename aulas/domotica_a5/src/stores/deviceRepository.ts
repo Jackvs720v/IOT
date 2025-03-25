@@ -12,7 +12,8 @@ export const useDeviceRepository = defineStore('device-repository', {
   }), //estado das variaveis, onde as variaveis ficam
   actions: {
     addEnvironment(newEnvironment: Environment){
-      this.environments.push(newEnvironment);
+      const deepCopy = JSON.parse(JSON.stringify(newEnvironment))
+      this.environments.push(deepCopy);
     },
     removeEnvironment(name: string){
       const index = this.environments.findIndex(env => env.name === name);
