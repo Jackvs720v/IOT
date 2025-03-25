@@ -2,52 +2,20 @@
 import DeviceComponent from "@/components/DeviceComponent.vue";
 import EnvironmentComponent from "@/components/EnvironmentComponent.vue";
 import { Device, Environment } from "@/models/devices";
+import { useDeviceRepository } from "@/stores/deviceRepository";
 import { ref, reactive, onMounted } from "vue"; //ref diz que é uma variavel reativa. 
 
 const selectedEnvironment = ref(new Environment());
+const newEnv = reactive(new Environment());
+const showNewEnvForm = ref(false);
 
-
-const ar: Device = reactive(new Device());
-ar.name = "Ar condicionado Samsung";
-ar.state = true;
-ar.icon = 'heat_pump';
-ar.fav = 'favorite';
-
-const tv: Device = reactive(new Device());
-tv.name = "Smart TV LG";
-tv.icon = 'tv';
-tv.fav = 'favorite';
-
-
-const iluminacao: Device = reactive(new Device())
-iluminacao.name = "Lâmpada LED";
-iluminacao.state = true;
-iluminacao.icon = 'light';
-iluminacao.fav = 'favorite';
-
-
-const tomada: Device = reactive(new Device())
-tomada.name = "Tomada Inteligente";
-tomada.state = false;
-tomada.icon = 'power';
-tomada.fav = 'favorite';
-
-//Environments
-
-const sala: Environment = reactive(new Environment());
-sala.name = 'Sala de Estar';
-sala.devices = [ar,tv,iluminacao];
-
-const quarto: Environment = reactive(new Environment());
-quarto.name = 'Quarto de Hóspedes';
-quarto.devices = [tomada];
-
-const environments: Array<Environment> = reactive([]);
- environments.push(sala);
- environments.push(quarto);
+const saveNewEnv = () => {
+    useDeviceRepository().addEnvironment(newEnv);
+    showNewEnvForm.value = false;
+}
 
 onMounted(() => {
-    selectedEnvironment.value = environments[0] ?? new Environment();
+    selectedEnvironment.value = useDeviceRepository().environments[0] ?? new Environment();
 
 }
 )
@@ -64,15 +32,25 @@ const changeState = () =>{
             <div class="flex flex-row m-3">
                 <label for="selectedEnv" class="mr-3">Ambiente:</label>
                 <select id="selectedEnv" v-model="selectedEnvironment">
-                    <option v-for="(currentEnv, envId) in environments" key="envId" 
+                    <option v-for="(currentEnv, envId) in useDeviceRepository().environments" key="envId" 
                      :value="currentEnv">{{ currentEnv.name }}
                     </option>
                    
-                    <option v-if="environments.length == 0" value="">Sem ambientes</option>  
+                    <option v-if="useDeviceRepository().environments.length == 0" value="">Sem ambientes</option>  
                     <option value="" v-if="selectedEnvironment.devices.length == 0">
                         Selecione
                     </option> 
                 </select>
+                <button @click="()=> showNewEnvForm = true">
+                    <span class="icons material-icons-round" >add</span>
+                </button>
+                <div>
+                    <label for="">Nome:</label>
+                    <input type="text" v-model="newEnv.name">
+                </div>
+                <button @click="saveNewEnv" v-if="showNewEnvForm">
+                    <span class="icons material-icons-round">save</span>
+                </button>
             </div>
     <div>
         <EnvironmentComponent :showDevButtons="false" :environment="selectedEnvironment"/>
@@ -82,9 +60,10 @@ const changeState = () =>{
 </template>
 
 <style scoped lang="scss">
- main{
+    main{
         width: 100vw;
         min-height: 100vh;
+
     .environments{
         width: 90vh;
         min-height: 95vh;
