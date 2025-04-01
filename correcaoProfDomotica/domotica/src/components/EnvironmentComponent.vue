@@ -1,14 +1,14 @@
 <script setup lang="ts">
    import { Device, Environment } from '@/models/devices';
    import DeviceComponent from './DeviceComponent.vue';
+   import AddNewDeviceComponent from './AddNewDeviceComponent.vue';
    import { reactive, ref } from 'vue';
 import { useDeviceRepository } from '@/stores/deviceRepository';
-import AddNewDeviceComponent from './AddNewDeviceComponent.vue';
     
     const props = defineProps({
         environment: { type: Environment, required: true },
         showDeviceButtons: { type: Boolean, default: true }
-    });//define se é uma propriedade
+    });
 
     const showNewDeviceForm = ref(false);
     const newDevice = reactive(new Device());

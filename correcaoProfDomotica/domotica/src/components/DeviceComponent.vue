@@ -21,8 +21,7 @@
         <div>
             <h5>{{ props.device.name }}</h5>
             <span class="icons material-icons-round">{{ props.device.icon }}</span>
-    <div v-if="props.showButtons" :class="`device-buttons button-${props.device.state}`"> <!-- template string segue o seguinte formato = `button-${ar.state}` -->
-
+            <div v-if="props.showButtons" :class="`device-buttons button-${props.device.state}`">
                 <button @click="()=>props.device.state = true" class="on">ON</button>
                 <button @click="()=>props.device.state = false" class="off">OFF</button>
             </div> 
