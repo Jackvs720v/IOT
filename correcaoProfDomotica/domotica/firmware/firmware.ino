@@ -58,7 +58,7 @@ void scanRoutine(){
             if (pin>=0){
                 pinMode(pin, OUTPUT);
                 digitalWrite(pin, state);
-                Serial.printf('PIN: %d, STATE: %s', pin, state ? "ON":"OFF");
+                Serial.printf("PIN: %d, STATE: %s \n", pin, state ? "ON":"OFF");
             }
         }
     }
