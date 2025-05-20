@@ -6,7 +6,7 @@ const char* ssid = "Wokwi-GUEST";
 const char* password = "";
 
 const char* contentfulURL = "https://api.contentful.com/spaces/5g095b2j4szw/environments/master/entries"; 
-const char* accessToken = "Bearer olx7dMDJiwF7lBZjnjetc-FDW7C7gSo9A3nLMLU_MdI";   
+const char* accessToken = "Bearer ol7bgyScfUutoW14xL1mFlsYxBfXd51E7SdO9Q4TA_w";   
 
 unsigned long timerScan = 0;
 #define SCAN_DELAY 10000  // Envia dados a cada 10s
